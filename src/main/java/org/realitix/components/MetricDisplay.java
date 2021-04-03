@@ -1,10 +1,18 @@
 package org.realitix.components;
 
+import org.realitix.models.FakerModel;
+
+import java.util.concurrent.BlockingQueue;
 import java.util.logging.Logger;
 
-public class MetricDisplay implements Runnable {
+public class MetricDisplay<T extends FakerModel> implements Runnable {
 
     private static final Logger logger = Logger.getLogger(MetricDisplay.class.getName());
+    private BlockingQueue<T> objects;
+
+    public MetricDisplay(BlockingQueue<T> objects) {
+        this.objects = objects;
+    }
 
     @Override
     public void run() {
@@ -19,8 +27,8 @@ public class MetricDisplay implements Runnable {
         // after garbage collection and decrease as new objects are created.
         long heapFreeSize = Runtime.getRuntime().freeMemory() / (1024 * 1024);
 
-        logger.info(String.format("Maximum heap size: %d MB, Current Heap Size: %d MB, Used Heap Size: %d MB",
-                heapMaxSize, heapSize, heapSize - heapFreeSize)
+        logger.info(String.format("Maximum heap size: %d MB, Current Heap Size: %d MB, Used Heap Size: %d MB \nQueue size: %d",
+                heapMaxSize, heapSize, heapSize - heapFreeSize, objects.size())
         );
     }
 }

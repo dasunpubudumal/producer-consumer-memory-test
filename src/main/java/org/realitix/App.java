@@ -33,7 +33,7 @@ public class App
                 TimeUnit.SECONDS
         );
         executorService.scheduleAtFixedRate(
-                new MetricDisplay(),
+                new MetricDisplay<>(blockingQueue),
                 Constants.METRIC_DELAY,
                 Constants.METRIC_PERIOD,
                 TimeUnit.SECONDS
