@@ -12,8 +12,8 @@ public class Consumer<T extends FakerModel> implements Runnable{
 
     BlockingQueue<T> objects;
 
-    public Consumer(BlockingQueue<T> integers) {
-        this.objects = integers;
+    public Consumer(BlockingQueue<T> objects) {
+        this.objects = objects;
     }
 
     @Override
