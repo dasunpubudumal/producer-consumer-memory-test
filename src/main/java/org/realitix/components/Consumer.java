@@ -10,7 +10,7 @@ public class Consumer<T extends FakerModel> implements Runnable{
 
     private static final Logger logger = Logger.getLogger(Consumer.class.getName());
 
-    BlockingQueue<T> objects;
+    private BlockingQueue<T> objects;
 
     public Consumer(BlockingQueue<T> objects) {
         this.objects = objects;
