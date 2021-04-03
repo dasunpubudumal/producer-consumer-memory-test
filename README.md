@@ -4,4 +4,8 @@ Vary the queue size, producer rate, consumer rates, # of producers, # of consume
 
 ![alt text](docs/scrn.png)
 
+## Instructions
+
+Clone the project and run `App.java` file.
+
 **Disclaimer**: *All configs are in `Constants` interface. Note that this is only a test program, and not intended to be deployed as an e2e solution. Therefore, best practices regarding program configuration, tests and deployments may not be adhered to here.*
