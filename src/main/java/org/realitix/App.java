@@ -1,6 +1,7 @@
 package org.realitix;
 
 import org.realitix.components.Consumer;
+import org.realitix.components.MetricDisplay;
 import org.realitix.components.Producer;
 import org.realitix.constants.Constants;
 import org.realitix.models.FakeUser;
@@ -29,6 +30,12 @@ public class App
                 new Consumer<>(blockingQueue),
                 Constants.CONSUMER_DELAY,
                 Constants.CONSUMER_PERIOD,
+                TimeUnit.SECONDS
+        );
+        executorService.scheduleAtFixedRate(
+                new MetricDisplay(),
+                Constants.METRIC_DELAY,
+                Constants.METRIC_PERIOD,
                 TimeUnit.SECONDS
         );
     }
