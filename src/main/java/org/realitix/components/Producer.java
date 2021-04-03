@@ -14,8 +14,8 @@ public class Producer<T extends FakerModel> implements Runnable {
 
     private BlockingQueue<T> objects;
 
-    public Producer(BlockingQueue<T> integers) {
-        this.objects = integers;
+    public Producer(BlockingQueue<T> objects) {
+        this.objects = objects;
     }
 
     @Override
