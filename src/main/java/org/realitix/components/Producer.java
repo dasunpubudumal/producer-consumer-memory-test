@@ -10,25 +10,24 @@ import java.util.logging.Logger;
 
 /**
  * Enqueues faker models into the queue
- * @param <T> faker model type
  */
-public class Producer<T extends FakerModel> implements Runnable {
+public class Producer implements Runnable {
 
     private static final Logger logger = Logger.getLogger(Producer.class.getName());
 
-    private BlockingQueue<T> objects;
+    private BlockingQueue<FakerModel> objects;
 
-    public Producer(BlockingQueue<T> objects) {
+    public Producer(BlockingQueue<FakerModel> objects) {
         this.objects = objects;
     }
 
     @Override
     public void run() {
 
-        FakeUser fakeUser = FakeUserFactory.getFakeUserInstance();
+        FakerModel fakeUser = FakeUserFactory.getFakeUserInstance();
 
         try {
-            objects.offer((T) fakeUser, 2, TimeUnit.SECONDS);
+            objects.offer(fakeUser, 2, TimeUnit.SECONDS);
             logger.info("Producer: I produced " + fakeUser);
         } catch (InterruptedException e) {
             logger.severe(e.getMessage());

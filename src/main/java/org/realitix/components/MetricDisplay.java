@@ -9,12 +9,12 @@ import java.util.logging.Logger;
  * Displays some metrics on the heap and queue size
  * @param <T> faker object type
  */
-public class MetricDisplay<T extends FakerModel> implements Runnable {
+public class MetricDisplay implements Runnable {
 
     private static final Logger logger = Logger.getLogger(MetricDisplay.class.getName());
-    private BlockingQueue<T> objects;
+    private BlockingQueue<FakerModel> objects;
 
-    public MetricDisplay(BlockingQueue<T> objects) {
+    public MetricDisplay(BlockingQueue<FakerModel> objects) {
         this.objects = objects;
     }
 

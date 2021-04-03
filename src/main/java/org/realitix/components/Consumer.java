@@ -8,15 +8,14 @@ import java.util.logging.Logger;
 
 /**
  * Consumes faker objects from the blocking queue.
- * @param <T> Faker model type
  */
-public class Consumer<T extends FakerModel> implements Runnable{
+public class Consumer implements Runnable{
 
     private static final Logger logger = Logger.getLogger(Consumer.class.getName());
 
-    private BlockingQueue<T> objects;
+    private BlockingQueue<FakerModel> objects;
 
-    public Consumer(BlockingQueue<T> objects) {
+    public Consumer(BlockingQueue<FakerModel> objects) {
         this.objects = objects;
     }
 
