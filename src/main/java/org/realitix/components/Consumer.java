@@ -6,6 +6,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+/**
+ * Consumes faker objects from the blocking queue.
+ * @param <T> Faker model type
+ */
 public class Consumer<T extends FakerModel> implements Runnable{
 
     private static final Logger logger = Logger.getLogger(Consumer.class.getName());

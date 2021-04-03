@@ -5,6 +5,10 @@ import org.realitix.models.FakerModel;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Logger;
 
+/**
+ * Displays some metrics on the heap and queue size
+ * @param <T> faker object type
+ */
 public class MetricDisplay<T extends FakerModel> implements Runnable {
 
     private static final Logger logger = Logger.getLogger(MetricDisplay.class.getName());

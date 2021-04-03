@@ -8,6 +8,10 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+/**
+ * Enqueues faker models into the queue
+ * @param <T> faker model type
+ */
 public class Producer<T extends FakerModel> implements Runnable {
 
     private static final Logger logger = Logger.getLogger(Producer.class.getName());

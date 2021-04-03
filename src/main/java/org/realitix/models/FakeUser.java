@@ -2,6 +2,9 @@ package org.realitix.models;
 
 import java.io.Serializable;
 
+/**
+ * A faker user model type.
+ */
 public class FakeUser extends FakerModel implements Serializable {
 
     private String name;
