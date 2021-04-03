@@ -1,10 +1,9 @@
 package org.realitix.components;
 
-import org.realitix.models.FakeUser;
-import org.realitix.models.FakeUserFactory;
-import org.realitix.models.FakerModel;
+import org.realitix.models.*;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -21,14 +20,20 @@ public class Producer implements Runnable {
         this.objects = objects;
     }
 
+    /**
+     * Randomly inserts fake users and/or fake quotes into the queue.
+     */
     @Override
     public void run() {
 
-        FakerModel fakeUser = FakeUserFactory.getFakeUserInstance();
+        int i = ThreadLocalRandom.current().nextInt(1, 3);
+
+        FakerModel fakerModel = i % 2 == 0 ? FakeUserFactory
+                .getFakeUserInstance() : FakeQuoteFactory.getFakeQuoteInstance();
 
         try {
-            objects.offer(fakeUser, 2, TimeUnit.SECONDS);
-            logger.info("Producer: I produced " + fakeUser);
+            objects.offer(fakerModel, 2, TimeUnit.SECONDS);
+            logger.info("Producer: I produced " + fakerModel);
         } catch (InterruptedException e) {
             logger.severe(e.getMessage());
         }

@@ -2,6 +2,10 @@
 
 Vary the queue size, producer rate, consumer rates, # of producers, # of consumers, delays, etc.
 
+The program randomly produces and inserts fake users and fake quotes to a `BlockingQueue` structure and consumes (polls) from the queue. 
+
+A program like [VisualVM](https://visualvm.github.io) can be used to profile the memory growth.
+
 ![alt text](docs/scrn.png)
 
 ## Instructions
