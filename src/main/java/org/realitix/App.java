@@ -15,7 +15,7 @@ public class App
     public static void main(String[] args) {
 
         // Try a blocking queue without size
-        BlockingQueue<FakeUser> blockingQueue = new LinkedBlockingQueue<>();
+        final BlockingQueue<FakeUser> blockingQueue = new LinkedBlockingQueue<>();
 
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(Constants.THREAD_POOL_SIZE);
 
