@@ -26,14 +26,10 @@ public class Producer implements Runnable {
     @Override
     public void run() {
 
-        int i = ThreadLocalRandom.current().nextInt(1, 3);
-
-        FakerModel fakerModel = i % 2 == 0 ? FakeUserFactory
-                .getFakeUserInstance() : FakeQuoteFactory.getFakeQuoteInstance();
-
         try {
-            objects.offer(fakerModel, 2, TimeUnit.SECONDS);
-            logger.info("Producer: I produced " + fakerModel);
+            FakerModel model = FakeModelFactory.getFakerModelInstance();
+            objects.offer(model, 2, TimeUnit.SECONDS);
+            logger.info("Producer: I produced " + model);
         } catch (InterruptedException e) {
             logger.severe(e.getMessage());
         }
