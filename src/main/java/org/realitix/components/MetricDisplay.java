@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 /**
  * Displays some metrics on the heap and queue size
- * @param <T> faker object type
  */
 public class MetricDisplay implements Runnable {
 
